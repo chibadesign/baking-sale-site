@@ -27,6 +27,17 @@
       gtag('js', new Date());
       gtag('config', 'G-T9YS88M27P');
     </script>
+    <script>
+  function trackAmazonClick(itemName, position) {
+    if (window.gtag) {
+      gtag('event', 'click_amazon', {
+        event_category: 'outbound',
+        event_label: itemName,
+        item_position: position
+      });
+    }
+  }
+</script>
   </head>
   <body>
     <div id="root"></div>

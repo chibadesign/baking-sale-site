@@ -20,6 +20,13 @@ export const ProductCard: React.FC<Props> = ({ item, rank }) => {
   const chip = categoryColors[item.category] || categoryColors["その他"];
   const emoji = rank ? rankEmoji(rank) : null;
 
+  // GAクリック用関数（index.htmlで定義済み trackAmazonClick を呼ぶ）
+  const handleClick = () => {
+    if (window.trackAmazonClick) {
+      window.trackAmazonClick(item.title, rank ? `ランキング${rank}位` : "ランクなし");
+    }
+  };
+
   return (
     <article className="bg-white rounded-2xl shadow hover:shadow-lg transition-shadow duration-200 flex flex-col overflow-hidden group relative">
       {/* ランクバッジ */}
@@ -34,9 +41,13 @@ export const ProductCard: React.FC<Props> = ({ item, rank }) => {
 
       <div className="relative bg-[#F5DED8] aspect-square overflow-hidden">
         {item.imageUrl && !imgError ? (
-          <img src={item.imageUrl} alt={item.title}
+          <img
+            src={item.imageUrl}
+            alt={item.title}
             className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
-            onError={() => setImgError(true)} loading="lazy" />
+            onError={() => setImgError(true)}
+            loading="lazy"
+          />
         ) : (
           <div className="w-full h-full flex items-center justify-center text-5xl">🧁</div>
         )}
@@ -82,8 +93,15 @@ export const ProductCard: React.FC<Props> = ({ item, rank }) => {
             )}
           </div>
         )}
-        <a href={item.detailPageUrl} target="_blank" rel="noopener noreferrer"
-          className="mt-3 block w-full text-center bg-[#8B4513] text-white font-bold py-2.5 rounded-full text-sm hover:bg-[#7a3b10] active:scale-95 transition-all duration-150 shadow">
+
+        {/* Amazonリンク（GAイベント付き） */}
+        <a
+          href={item.detailPageUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={handleClick}
+          className="mt-3 block w-full text-center bg-[#8B4513] text-white font-bold py-2.5 rounded-full text-sm hover:bg-[#7a3b10] active:scale-95 transition-all duration-150 shadow"
+        >
           Amazonで確認する
         </a>
       </div>
