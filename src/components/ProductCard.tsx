@@ -65,6 +65,23 @@ export const ProductCard: React.FC<Props> = ({ item, rank }) => {
             <p className="text-xs text-red-600 font-medium">{fmt(item.originalPrice - item.price)} OFF</p>
           )}
         </div>
+        {/* 星評価 */}
+        {item.rating !== null && (
+          <div className="flex items-center gap-1.5 mt-1">
+            <div className="flex text-amber-400 text-xs">
+              {[1,2,3,4,5].map(s => (
+                <span key={s}>{s <= Math.round(item.rating!) ? "★" : "☆"}</span>
+              ))}
+            </div>
+            <span className="text-xs text-gray-500 font-medium">{item.rating}</span>
+            {item.reviewCount !== null && (
+              <a href={item.detailPageUrl} target="_blank" rel="noopener noreferrer"
+                className="text-xs text-[#8B4513] hover:underline">
+                （{item.reviewCount.toLocaleString("ja-JP")}件）
+              </a>
+            )}
+          </div>
+        )}
         <a href={item.detailPageUrl} target="_blank" rel="noopener noreferrer"
           className="mt-3 block w-full text-center bg-[#8B4513] text-white font-bold py-2.5 rounded-full text-sm hover:bg-[#7a3b10] active:scale-95 transition-all duration-150 shadow">
           Amazonで確認する

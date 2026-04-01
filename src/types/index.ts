@@ -9,6 +9,8 @@ export interface SaleItem {
   detailPageUrl: string;
   category: string;
   features: string[];
+  rating: number | null;
+  reviewCount: number | null;
 }
 
 export interface SaleData {
