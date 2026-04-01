@@ -26,7 +26,11 @@ export type Category =
   | "製菓型・天板"
   | "デコレーション用品"
   | "製菓材料"
-  | "その他";
+  | "クッキングシート・消耗品"
+  | "ラッピング・梱包"
+  | "保存容器"
+  | "ウェア・小物"
+  | "その他製菓用品";
 
 export interface FilterState {
   category: Category;
