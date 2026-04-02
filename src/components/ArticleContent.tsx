@@ -76,22 +76,22 @@ export const ArticleContent: React.FC<Props> = ({ items }) => {
     <div className="mt-12 space-y-12 max-w-4xl mx-auto">
 
       {/* ① 導入文 */}
-      <section className="bg-white rounded-2xl shadow p-6 border-l-4 border-[#8B4513]">
-        <p className="text-xs font-bold text-[#8B4513] uppercase tracking-widest mb-2">2026年最新版 結論</p>
+      <section className="bg-white rounded-2xl shadow p-6 border-l-4 border-[#D84315]">
+        <p className="text-xs font-bold text-[#D84315] uppercase tracking-widest mb-2">2026年最新版 結論</p>
         <h2 className="text-lg font-bold text-gray-800 mb-3">今すぐ買うべき製菓道具はこれだ</h2>
         <p className="text-sm text-gray-700 leading-relaxed mb-4">
-          結論から言う。<strong className="text-[#8B4513]">今日のAmazonセールで最もコスパが高いのは「シリコン製菓型」</strong>である。
+          結論から言う。<strong className="text-[#D84315]">今日のAmazonセールで最もコスパが高いのは「シリコン製菓型」</strong>である。
           理由はシンプルで、割引率30〜35%・価格1,000円以下・初心者でも失敗しにくいという3条件を同時に満たしているからだ。
           ベーキング セールを探しているなら、まずこのカテゴリから確認することを強くすすめる。
         </p>
-        <div className="bg-[#FFF8F6] border border-[#FFDBC9] rounded-xl p-4">
-          <p className="text-xs font-bold text-[#8B4513] mb-2">⚡ 今日の3大注目セール</p>
+        <div className="bg-[#FFFAF7] border border-[#FFF3E0] rounded-xl p-4">
+          <p className="text-xs font-bold text-[#D84315] mb-2">⚡ 今日の3大注目セール</p>
           <div className="space-y-1.5">
             {top10.slice(0, 3).map((item, i) => (
               <div key={item.asin} className="flex items-center gap-2 text-sm">
                 <span>{i === 0 ? "🥇" : i === 1 ? "🥈" : "🥉"}</span>
                 <a href={item.detailPageUrl} target="_blank" rel="noopener noreferrer"
-                  className="text-[#8B4513] hover:underline font-medium truncate flex-1">
+                  className="text-[#D84315] hover:underline font-medium truncate flex-1">
                   {item.title}
                 </a>
                 <span className="text-red-600 font-bold flex-shrink-0">-{item.discountPercent}%</span>
@@ -103,7 +103,7 @@ export const ArticleContent: React.FC<Props> = ({ items }) => {
 
       {/* 迷ったらこれ（結論） */}
       {top10.length > 0 && (
-        <section className="bg-gradient-to-r from-[#8B4513] to-[#a0522d] text-white rounded-2xl p-6">
+        <section className="bg-gradient-to-r from-[#D84315] to-[#E67300] text-white rounded-2xl p-6">
           <h3 className="text-lg font-bold mb-1 flex items-center gap-2">
             <span>👑</span> 迷ったらこれ（結論）
           </h3>
@@ -121,7 +121,7 @@ export const ArticleContent: React.FC<Props> = ({ items }) => {
             </p>
           </div>
           <a href={top10[0].detailPageUrl} target="_blank" rel="noopener noreferrer"
-            className="block w-full text-center bg-white text-[#8B4513] font-bold py-3 rounded-full text-sm hover:bg-orange-50 transition-colors">
+            className="block w-full text-center bg-white text-[#D84315] font-bold py-3 rounded-full text-sm hover:bg-orange-50 transition-colors">
             👉 今この価格で買えるのはここだけ（在庫切れ注意）
           </a>
         </section>
@@ -129,7 +129,7 @@ export const ArticleContent: React.FC<Props> = ({ items }) => {
 
       {/* ② 比較表 TOP10 */}
       <section>
-        <p className="text-xs font-bold text-[#8B4513] uppercase tracking-widest mb-1">完全比較</p>
+        <p className="text-xs font-bold text-[#D84315] uppercase tracking-widest mb-1">完全比較</p>
         <h2 className="text-xl font-bold text-gray-800 mb-1 flex items-center gap-2">
           <span>🏆</span> セールランキング TOP{top10.length}
         </h2>
@@ -139,7 +139,7 @@ export const ArticleContent: React.FC<Props> = ({ items }) => {
           <div className="overflow-x-auto rounded-2xl shadow">
             <table className="w-full text-sm bg-white min-w-[600px]">
               <thead>
-                <tr className="bg-[#8B4513] text-white">
+                <tr className="bg-[#D84315] text-white">
                   <th className="px-3 py-3 text-center w-10">順位</th>
                   <th className="px-3 py-3 text-left">商品名</th>
                   <th className="px-3 py-3 text-center w-16">割引率</th>
@@ -153,13 +153,13 @@ export const ArticleContent: React.FC<Props> = ({ items }) => {
                 {top10.map((item, i) => {
                   const copa = getCopaScore(item);
                   return (
-                    <tr key={item.asin} className={`border-b border-[#F5DED8] ${i % 2 === 0 ? "bg-white" : "bg-[#FFF8F6]"} ${i === 0 ? "font-semibold" : ""}`}>
+                    <tr key={item.asin} className={`border-b border-[#FFF3E0] ${i % 2 === 0 ? "bg-white" : "bg-[#FFFAF7]"} ${i === 0 ? "font-semibold" : ""}`}>
                       <td className="px-3 py-3 text-center">
                         {i === 0 ? "🥇" : i === 1 ? "🥈" : i === 2 ? "🥉" : `${i + 1}位`}
                       </td>
                       <td className="px-3 py-3">
                         <a href={item.detailPageUrl} target="_blank" rel="noopener noreferrer"
-                          className="text-[#8B4513] hover:underline line-clamp-2 leading-snug">
+                          className="text-[#D84315] hover:underline line-clamp-2 leading-snug">
                           {item.title}
                         </a>
                       </td>
@@ -168,7 +168,7 @@ export const ArticleContent: React.FC<Props> = ({ items }) => {
                           -{item.discountPercent}%
                         </span>
                       </td>
-                      <td className="px-3 py-3 text-right font-bold text-[#8B4513]">
+                      <td className="px-3 py-3 text-right font-bold text-[#D84315]">
                         {item.price !== null ? fmt(item.price) : "—"}
                       </td>
                       <td className="px-3 py-3 text-center">
@@ -197,7 +197,7 @@ export const ArticleContent: React.FC<Props> = ({ items }) => {
       {/* ③④ 詳細レビュー＋こんな人におすすめ */}
       {top10.length > 0 && (
         <section>
-          <p className="text-xs font-bold text-[#8B4513] uppercase tracking-widest mb-1">詳細レビュー</p>
+          <p className="text-xs font-bold text-[#D84315] uppercase tracking-widest mb-1">詳細レビュー</p>
           <h2 className="text-xl font-bold text-gray-800 mb-1 flex items-center gap-2">
             <span>🔍</span> 各商品の詳細解説
           </h2>
@@ -215,7 +215,7 @@ export const ArticleContent: React.FC<Props> = ({ items }) => {
                   <div className="flex-1 min-w-0">
                     <p className="font-bold text-sm text-gray-800 line-clamp-1">{item.title}</p>
                     <div className="flex items-center gap-2 mt-0.5">
-                      {item.price && <span className="text-[#8B4513] font-bold text-sm">{fmt(item.price)}</span>}
+                      {item.price && <span className="text-[#D84315] font-bold text-sm">{fmt(item.price)}</span>}
                       <span className="bg-red-100 text-red-700 text-xs font-bold px-2 py-0.5 rounded-full">-{item.discountPercent}%</span>
                       <span className="text-xs text-gray-400">{item.category}</span>
                     </div>
@@ -227,11 +227,11 @@ export const ArticleContent: React.FC<Props> = ({ items }) => {
                 </button>
 
                 {openDetail === i && (
-                  <div className="px-5 pb-5 border-t border-[#F5DED8] pt-4 space-y-4">
+                  <div className="px-5 pb-5 border-t border-[#FFF3E0] pt-4 space-y-4">
                     {/* 口コミ風コメント */}
                     {reviews[i] && (
-                      <div className="bg-[#FFF8F6] border border-[#FFDBC9] rounded-xl p-4">
-                        <p className="text-xs font-bold text-[#8B4513] mb-1">💬 購入者の声</p>
+                      <div className="bg-[#FFFAF7] border border-[#FFF3E0] rounded-xl p-4">
+                        <p className="text-xs font-bold text-[#D84315] mb-1">💬 購入者の声</p>
                         <p className="text-sm text-gray-700 italic leading-relaxed">{reviews[i].comment}</p>
                       </div>
                     )}
@@ -282,7 +282,7 @@ export const ArticleContent: React.FC<Props> = ({ items }) => {
 
                     <p className="text-xs text-gray-400 text-center">👉 今この価格で買えるのはここだけ（在庫僅少）</p>
                     <a href={item.detailPageUrl} target="_blank" rel="noopener noreferrer"
-                      className="block w-full text-center bg-[#8B4513] text-white font-bold py-3 rounded-full text-sm hover:bg-[#7a3b10] transition-colors">
+                      className="block w-full text-center bg-[#D84315] text-white font-bold py-3 rounded-full text-sm hover:bg-[#E67300] transition-colors">
                       Amazonで最安値を確認する →
                     </a>
                   </div>
@@ -295,7 +295,7 @@ export const ArticleContent: React.FC<Props> = ({ items }) => {
 
       {/* TRIZ的アドバイス */}
       <section className="bg-white rounded-2xl shadow p-6">
-        <p className="text-xs font-bold text-[#8B4513] uppercase tracking-widest mb-1">TRIZ的選別</p>
+        <p className="text-xs font-bold text-[#D84315] uppercase tracking-widest mb-1">TRIZ的選別</p>
         <h2 className="text-xl font-bold text-gray-800 mb-1 flex items-center gap-2">
           <span>⚖️</span> 安物でいい道具 vs 投資すべき道具
         </h2>
@@ -340,7 +340,7 @@ export const ArticleContent: React.FC<Props> = ({ items }) => {
 
       {/* ⑥ 失敗しない選び方（ジョブ理論） */}
       <section>
-        <p className="text-xs font-bold text-[#8B4513] uppercase tracking-widest mb-1">後悔しないために</p>
+        <p className="text-xs font-bold text-[#D84315] uppercase tracking-widest mb-1">後悔しないために</p>
         <h2 className="text-xl font-bold text-gray-800 mb-1 flex items-center gap-2">
           <span>📚</span> 失敗しない選び方 3つのチェックポイント
         </h2>
@@ -367,7 +367,7 @@ export const ArticleContent: React.FC<Props> = ({ items }) => {
             },
           ].map(item => (
             <div key={item.num} className="bg-white rounded-2xl shadow p-5 flex gap-4">
-              <div className="text-3xl font-bold text-[#FFDBC9] flex-shrink-0 w-10">{item.num}</div>
+              <div className="text-3xl font-bold text-[#FFF3E0] flex-shrink-0 w-10">{item.num}</div>
               <div>
                 <h3 className="font-bold text-gray-800 text-sm mb-1">{item.title}</h3>
                 <p className="text-xs text-gray-600 leading-relaxed mb-2">{item.body}</p>
@@ -420,7 +420,7 @@ export const ArticleContent: React.FC<Props> = ({ items }) => {
                 </svg>
               </button>
               {openFaq === i && (
-                <div className="px-5 pb-4 text-sm text-gray-600 leading-relaxed border-t border-[#F5DED8] pt-3">
+                <div className="px-5 pb-4 text-sm text-gray-600 leading-relaxed border-t border-[#FFF3E0] pt-3">
                   {faq.a}
                 </div>
               )}
@@ -430,7 +430,7 @@ export const ArticleContent: React.FC<Props> = ({ items }) => {
       </section>
 
       {/* ⑧ まとめ・クロージング */}
-      <section className="bg-[#8B4513] text-white rounded-2xl p-6">
+      <section className="bg-[#D84315] text-white rounded-2xl p-6">
         <p className="text-xs font-bold text-orange-200 uppercase tracking-widest mb-2">強力なクロージング</p>
         <h2 className="text-lg font-bold mb-3 flex items-center gap-2">
           <span>🎯</span> まとめ：今すぐ買うべき理由
@@ -443,7 +443,7 @@ export const ArticleContent: React.FC<Props> = ({ items }) => {
         </div>
         {top10.length > 0 && (
           <a href={top10[0].detailPageUrl} target="_blank" rel="noopener noreferrer"
-            className="block w-full text-center bg-white text-[#8B4513] font-bold py-3.5 rounded-full text-sm hover:bg-orange-50 transition-colors mb-3">
+            className="block w-full text-center bg-white text-[#D84315] font-bold py-3.5 rounded-full text-sm hover:bg-orange-50 transition-colors mb-3">
             👉 今この価格で買えるのはここだけ（在庫切れ注意）
           </a>
         )}

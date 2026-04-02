@@ -28,7 +28,7 @@ export default function App() {
     : 0;
 
   return (
-    <div className="min-h-screen bg-[#FFF8F6] font-sans">
+    <div className="min-h-screen bg-[#FFFAF7] font-sans">
       <Header
         cachedAt={data?.cachedAt ?? null}
         nextUpdate={data?.nextUpdate ?? null}
@@ -117,7 +117,7 @@ export default function App() {
                 <p className="text-sm text-gray-600"><span className="font-semibold">{filteredItems.length}</span>件</p>
                 <button
                   onClick={() => setDrawerOpen(true)}
-                  className="flex items-center gap-1.5 border border-gray-300 text-gray-700 px-3 py-1.5 rounded-full text-sm font-medium hover:bg-[#FFF3E0] transition-colors"
+                  className="flex items-center gap-1.5 border border-[#FFAB91] text-gray-700 px-3 py-1.5 rounded-full text-sm font-medium hover:bg-[#FFF3E0] transition-colors"
                 >
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2a1 1 0 01-.293.707L13 13.414V19a1 1 0 01-.553.894l-4 2A1 1 0 017 21v-7.586L3.293 6.707A1 1 0 013 6V4z" />
@@ -138,7 +138,7 @@ export default function App() {
                 <span className="text-6xl mb-4">🔍</span>
                 <h2 className="text-lg font-semibold text-gray-700 mb-2">該当する商品が見つかりません</h2>
                 <p className="text-sm text-gray-500 mb-6">フィルター条件を変更してみてください</p>
-                <button onClick={() => setFilter(DEFAULT_FILTER)} className="bg-[#D84315] text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-[#E67300] transition-colors">
+                <button onClick={() => setFilter(DEFAULT_FILTER)} className="bg-[#D84315] text-white px-6 py-2.5 rounded-full text-sm font-medium">
                   フィルターをリセット
                 </button>
               </div>
@@ -155,13 +155,13 @@ export default function App() {
         <ArticleContent items={allItems} />
       </main>
 
-      <footer className="border-t border-[#FFCCBC] mt-12 py-8 px-4 bg-white">
+      <footer className="border-t border-[#FFF3E0] mt-12 py-8 px-4 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-xs text-gray-500 leading-relaxed">
             当サイトはAmazon.co.jpを宣伝しリンクすることによってサイトが紹介料を獲得できる手段を提供することを目的に設定されたアフィリエイトプログラムである、Amazonアソシエイト・プログラムの参加者です。
           </p>
           <p className="text-xs text-gray-400 mt-2">
-            価格・在庫状況は変動します。購入前に必ずAmazonでご確認ください。
+            価格・在庫状況は変動します。購入前に必ずAmazonでご確認ください。商品情報は{new Date().toLocaleDateString("ja-JP")}時点のものです。
           </p>
         </div>
       </footer>

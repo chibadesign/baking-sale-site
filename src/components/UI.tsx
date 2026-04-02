@@ -5,12 +5,12 @@ import { FilterState } from "../types";
 // ── Skeleton ──────────────────────────────────────────────
 export const ProductSkeleton: React.FC = () => (
   <div className="bg-white rounded-2xl shadow overflow-hidden animate-pulse">
-    <div className="bg-[#F5DED8] aspect-square" />
+    <div className="bg-[#FFF3E0] aspect-square" />
     <div className="p-4 flex flex-col gap-3">
-      <div className="h-4 bg-[#F5DED8] rounded w-1/3" />
-      <div className="h-4 bg-[#F5DED8] rounded w-full" />
-      <div className="h-4 bg-[#F5DED8] rounded w-3/4" />
-      <div className="h-8 bg-[#F5DED8] rounded-full mt-2" />
+      <div className="h-4 bg-[#FFF3E0] rounded w-1/3" />
+      <div className="h-4 bg-[#FFF3E0] rounded w-full" />
+      <div className="h-4 bg-[#FFF3E0] rounded w-3/4" />
+      <div className="h-8 bg-[#FFF3E0] rounded-full mt-2" />
     </div>
   </div>
 );
@@ -45,11 +45,11 @@ export const MobileFilterDrawer: React.FC<DrawerProps> = ({ isOpen, onClose, fil
       <div className="fixed bottom-0 left-0 right-0 bg-white rounded-t-[28px] z-50 max-h-[85vh] overflow-y-auto"
         role="dialog" aria-modal="true">
         <div className="flex justify-center pt-3 pb-1">
-          <div className="w-8 h-1 bg-[#D8C2BC] rounded-full" />
+          <div className="w-8 h-1 bg-[#FFCCBC] rounded-full" />
         </div>
-        <div className="flex items-center justify-between px-4 py-3 border-b border-[#D8C2BC]">
+        <div className="flex items-center justify-between px-4 py-3 border-b border-[#FFCCBC]">
           <span className="text-base font-semibold text-gray-800">フィルター</span>
-          <button onClick={onClose} className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-[#F5DED8]">
+          <button onClick={onClose} className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-[#FFF3E0]">
             <svg className="w-5 h-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
@@ -58,9 +58,9 @@ export const MobileFilterDrawer: React.FC<DrawerProps> = ({ isOpen, onClose, fil
         <div className="p-4">
           <FilterBar filter={filter} onChange={onChange} totalCount={totalCount} filteredCount={filteredCount} />
         </div>
-        <div className="sticky bottom-0 bg-white border-t border-[#D8C2BC] p-4">
+        <div className="sticky bottom-0 bg-white border-t border-[#FFCCBC] p-4">
           <button onClick={onClose}
-            className="w-full bg-[#8B4513] text-white font-semibold py-3 rounded-full text-base">
+            className="w-full bg-[#D84315] text-white font-semibold py-3 rounded-full text-base">
             {filteredCount}件を表示
           </button>
         </div>

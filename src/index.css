@@ -5,11 +5,7 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    font-family: 'Noto Sans JP', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    background-color: #F7F7F7;
-  }
+  html { font-family: 'Noto Sans JP', sans-serif; -webkit-font-smoothing: antialiased; }
   * { box-sizing: border-box; }
 }
 
@@ -20,15 +16,9 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
-  .line-clamp-3 {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
 }
 
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #f0f0f0; }
-::-webkit-scrollbar-thumb { background: #FF8C00; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #e67e00; }
+::-webkit-scrollbar-track { background: #f5dfd9; }
+::-webkit-scrollbar-thumb { background: #c9a99a; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #8b4513; }

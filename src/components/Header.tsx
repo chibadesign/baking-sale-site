@@ -9,40 +9,37 @@ interface Props {
 }
 
 export const Header: React.FC<Props> = ({ cachedAt, nextUpdate, isMock, onRefresh, loading }) => {
-  const fmt = (ts: number) => new Date(ts).toLocaleTimeString("ja-JP", { hour: "2-digit", minute: "2-digit" });
+  const today = new Date().toLocaleDateString("ja-JP", { year:"numeric", month:"long", day:"numeric", weekday:"long" });
+  const fmt = (ts: number) => new Date(ts).toLocaleTimeString("ja-JP", { hour:"2-digit", minute:"2-digit" });
 
   return (
-    <header className="bg-white border-b border-gray-200 sticky top-0 z-30">
+    <header className="bg-[#D84315] text-white shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-14">
-          <div className="flex items-center gap-2">
-            <span className="text-2xl">🍰</span>
-            <div>
-              <span className="text-base font-bold text-gray-900">製菓道具</span>
-              <span className="text-base font-bold text-[#D84315]">セール</span>
-            </div>
-          </div>
+        <div className="flex items-center justify-between py-4">
           <div className="flex items-center gap-3">
-            <div className="hidden sm:flex flex-col items-end text-xs text-gray-400">
-              {cachedAt && <span>取得: {fmt(cachedAt)}</span>}
-              {nextUpdate && <span>次回: {fmt(nextUpdate)}</span>}
+            <span className="text-3xl">🍰</span>
+            <div>
+              <h1 className="text-xl sm:text-2xl font-bold leading-tight">製菓道具 セール情報</h1>
+              <p className="text-xs text-white/70 mt-0.5">Amazon タイムセール</p>
             </div>
-            {isMock && (
-              <span className="hidden sm:inline text-xs bg-[#FFF3E0] text-[#D84315] px-2 py-1 rounded-full border border-[#FFCCBC]">
-                デモ
-              </span>
-            )}
-            <button
-              onClick={onRefresh}
-              disabled={loading}
-              className="flex items-center gap-1.5 bg-[#D84315] hover:bg-[#E67300] disabled:opacity-50 text-white px-3 py-1.5 rounded-full text-xs font-medium transition-colors"
-            >
-              <svg className={`w-3.5 h-3.5 ${loading ? "animate-spin" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-              </svg>
-              更新
-            </button>
           </div>
+          <button onClick={onRefresh} disabled={loading}
+            className="flex items-center gap-2 bg-white/20 hover:bg-white/30 disabled:opacity-50 px-3 sm:px-4 py-2 rounded-full text-sm font-medium transition-colors">
+            <svg className={`w-4 h-4 ${loading ? "animate-spin" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+            <span className="hidden sm:inline">更新</span>
+          </button>
+        </div>
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-1 pb-3 text-xs text-white/75">
+          <span>📅 {today}</span>
+          {cachedAt && <span>最終取得: {fmt(cachedAt)}</span>}
+          {nextUpdate && <span>次回更新: {fmt(nextUpdate)}</span>}
+          {isMock && (
+            <span className="bg-yellow-400/30 text-yellow-100 px-2 py-0.5 rounded-full border border-yellow-300/30">
+              ⚠ デモデータ表示中（PA-API未設定）
+            </span>
+          )}
         </div>
       </div>
     </header>
