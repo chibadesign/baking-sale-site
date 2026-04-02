@@ -38,7 +38,7 @@ export default function App() {
       />
 
       {/* Hero */}
-      <div className="bg-[#FF6F00] text-white py-10 px-4">
+      <div className="bg-[#D84315] text-white py-10 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-xs font-semibold tracking-widest text-orange-200 uppercase mb-2">
             2026年最新版 · 毎時自動更新
@@ -82,12 +82,12 @@ export default function App() {
         )}
 
         {/* 導入文 */}
-        <section className="mb-8 bg-white rounded-2xl shadow p-6 border-l-4 border-[#FF6F00]">
+        <section className="mb-8 bg-white rounded-2xl shadow p-6 border-l-4 border-[#D84315]">
           <h2 className="text-base font-bold text-gray-800 mb-3 flex items-center gap-2">
             <span>📢</span> 今日の結論：どこが一番安いか
           </h2>
           <p className="text-sm text-gray-700 leading-relaxed">
-            <strong className="text-[#FF6F00]">今日Amazonで最もお得なのは製菓型・天板カテゴリ</strong>です。
+            <strong className="text-[#D84315]">今日Amazonで最もお得なのは製菓型・天板カテゴリ</strong>です。
             シリコン型・タルト型が30〜35%OFFと高割引率が続いており、まとめ買いのチャンスです。
             キッチン家電（ハンドミキサー・ホームベーカリー）も25〜34%OFFのセールが複数出ています。
             在庫は変動が激しいため、<strong>気になる商品は早めに確認</strong>することを強くおすすめします。
@@ -110,20 +110,20 @@ export default function App() {
           <div className="flex-1 min-w-0">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-base font-bold text-gray-800 flex items-center gap-2">
-                <span className="bg-[#FF6F00] text-white text-xs px-2 py-0.5 rounded-full">LIVE</span>
+                <span className="bg-[#D84315] text-white text-xs px-2 py-0.5 rounded-full">LIVE</span>
                 セールランキング TOP{filteredItems.length}
               </h2>
               <div className="lg:hidden flex items-center gap-2">
                 <p className="text-sm text-gray-600"><span className="font-semibold">{filteredItems.length}</span>件</p>
                 <button
                   onClick={() => setDrawerOpen(true)}
-                  className="flex items-center gap-1.5 border border-[#85736E] text-gray-700 px-3 py-1.5 rounded-full text-sm font-medium hover:bg-[#F5DED8] transition-colors"
+                  className="flex items-center gap-1.5 border border-gray-300 text-gray-700 px-3 py-1.5 rounded-full text-sm font-medium hover:bg-[#FFF3E0] transition-colors"
                 >
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2a1 1 0 01-.293.707L13 13.414V19a1 1 0 01-.553.894l-4 2A1 1 0 017 21v-7.586L3.293 6.707A1 1 0 013 6V4z" />
                   </svg>
                   絞り込み
-                  {hasActiveFilter && <span className="bg-[#FF6F00] text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">!</span>}
+                  {hasActiveFilter && <span className="bg-[#D84315] text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">!</span>}
                 </button>
               </div>
               <p className="hidden lg:block text-sm text-gray-500">
@@ -138,7 +138,7 @@ export default function App() {
                 <span className="text-6xl mb-4">🔍</span>
                 <h2 className="text-lg font-semibold text-gray-700 mb-2">該当する商品が見つかりません</h2>
                 <p className="text-sm text-gray-500 mb-6">フィルター条件を変更してみてください</p>
-                <button onClick={() => setFilter(DEFAULT_FILTER)} className="bg-[#FF6F00] text-white px-6 py-2.5 rounded-full text-sm font-medium">
+                <button onClick={() => setFilter(DEFAULT_FILTER)} className="bg-[#D84315] text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-[#E67300] transition-colors">
                   フィルターをリセット
                 </button>
               </div>
@@ -155,13 +155,13 @@ export default function App() {
         <ArticleContent items={allItems} />
       </main>
 
-      <footer className="border-t border-[#F5DED8] mt-12 py-8 px-4 bg-white">
+      <footer className="border-t border-[#FFCCBC] mt-12 py-8 px-4 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-xs text-gray-500 leading-relaxed">
             当サイトはAmazon.co.jpを宣伝しリンクすることによってサイトが紹介料を獲得できる手段を提供することを目的に設定されたアフィリエイトプログラムである、Amazonアソシエイト・プログラムの参加者です。
           </p>
           <p className="text-xs text-gray-400 mt-2">
-            価格・在庫状況は変動します。購入前に必ずAmazonでご確認ください。商品情報は{new Date().toLocaleDateString("ja-JP")}時点のものです。
+            価格・在庫状況は変動します。購入前に必ずAmazonでご確認ください。
           </p>
         </div>
       </footer>
