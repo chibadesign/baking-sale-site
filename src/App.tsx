@@ -38,7 +38,7 @@ export default function App() {
       />
 
       {/* Hero */}
-      <div className="bg-[#FF8C00] text-white py-10 px-4">
+      <div className="bg-[#FF6F00] text-white py-10 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-xs font-semibold tracking-widest text-orange-200 uppercase mb-2">
             2026年最新版 · 毎時自動更新
@@ -82,12 +82,12 @@ export default function App() {
         )}
 
         {/* 導入文 */}
-        <section className="mb-8 bg-white rounded-2xl shadow p-6 border-l-4 border-[#FF8C00]">
+        <section className="mb-8 bg-white rounded-2xl shadow p-6 border-l-4 border-[#FF6F00]">
           <h2 className="text-base font-bold text-gray-800 mb-3 flex items-center gap-2">
             <span>📢</span> 今日の結論：どこが一番安いか
           </h2>
           <p className="text-sm text-gray-700 leading-relaxed">
-            <strong className="text-[#FF8C00]">今日Amazonで最もお得なのは製菓型・天板カテゴリ</strong>です。
+            <strong className="text-[#FF6F00]">今日Amazonで最もお得なのは製菓型・天板カテゴリ</strong>です。
             シリコン型・タルト型が30〜35%OFFと高割引率が続いており、まとめ買いのチャンスです。
             キッチン家電（ハンドミキサー・ホームベーカリー）も25〜34%OFFのセールが複数出ています。
             在庫は変動が激しいため、<strong>気になる商品は早めに確認</strong>することを強くおすすめします。
@@ -110,7 +110,7 @@ export default function App() {
           <div className="flex-1 min-w-0">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-base font-bold text-gray-800 flex items-center gap-2">
-                <span className="bg-[#FF8C00] text-white text-xs px-2 py-0.5 rounded-full">LIVE</span>
+                <span className="bg-[#FF6F00] text-white text-xs px-2 py-0.5 rounded-full">LIVE</span>
                 セールランキング TOP{filteredItems.length}
               </h2>
               <div className="lg:hidden flex items-center gap-2">
@@ -123,7 +123,7 @@ export default function App() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2a1 1 0 01-.293.707L13 13.414V19a1 1 0 01-.553.894l-4 2A1 1 0 017 21v-7.586L3.293 6.707A1 1 0 013 6V4z" />
                   </svg>
                   絞り込み
-                  {hasActiveFilter && <span className="bg-[#FF8C00] text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">!</span>}
+                  {hasActiveFilter && <span className="bg-[#FF6F00] text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">!</span>}
                 </button>
               </div>
               <p className="hidden lg:block text-sm text-gray-500">
@@ -138,7 +138,7 @@ export default function App() {
                 <span className="text-6xl mb-4">🔍</span>
                 <h2 className="text-lg font-semibold text-gray-700 mb-2">該当する商品が見つかりません</h2>
                 <p className="text-sm text-gray-500 mb-6">フィルター条件を変更してみてください</p>
-                <button onClick={() => setFilter(DEFAULT_FILTER)} className="bg-[#FF8C00] text-white px-6 py-2.5 rounded-full text-sm font-medium">
+                <button onClick={() => setFilter(DEFAULT_FILTER)} className="bg-[#FF6F00] text-white px-6 py-2.5 rounded-full text-sm font-medium">
                   フィルターをリセット
                 </button>
               </div>
