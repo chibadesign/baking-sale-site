@@ -31,62 +31,40 @@ export const ProductCard: React.FC<Props> = ({ item, rank }) => {
   const emoji = rank ? rankEmoji(rank) : null;
 
   return (
-    <article className="bg-white rounded-xl border border-gray-200 hover:border-[#FF8C00] hover:shadow-lg transition-all duration-200 flex flex-col overflow-hidden group">
-      {/* 画像エリア */}
+    <article className="bg-white rounded-xl border border-gray-200 hover:border-orange-400 hover:shadow-lg transition-all duration-200 flex flex-col overflow-hidden group">
       <div className="relative bg-gray-50 aspect-square overflow-hidden">
-        {/* ランクバッジ */}
         {emoji && (
-          <div className="absolute top-2 left-2 z-10 text-2xl leading-none drop-shadow">{emoji}</div>
+          <div className="absolute top-2 left-2 z-10 text-2xl leading-none">{emoji}</div>
         )}
         {!emoji && rank && rank <= 10 && (
           <div className="absolute top-2 left-2 z-10 bg-gray-800 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center">
             {rank}
           </div>
         )}
-
         {item.imageUrl && !imgError ? (
-          <img
-            src={item.imageUrl}
-            alt={item.title}
+          <img src={item.imageUrl} alt={item.title}
             className="w-full h-full object-contain p-3 group-hover:scale-105 transition-transform duration-300"
-            onError={() => setImgError(true)}
-            loading="lazy"
-          />
+            onError={() => setImgError(true)} loading="lazy" />
         ) : (
           <div className="w-full h-full flex items-center justify-center text-5xl">🧁</div>
         )}
-
-        {/* 割引バッジ */}
         {item.discountPercent && item.discountPercent > 0 && (
-          <div className="absolute top-2 right-2 bg-[#FF8C00] text-white text-xs font-bold rounded-lg px-2 py-1 shadow">
+          <div className="absolute top-2 right-2 bg-orange-500 text-white text-xs font-bold rounded-lg px-2 py-1 shadow">
             -{item.discountPercent}%
           </div>
         )}
       </div>
 
-      {/* テキストエリア */}
       <div className="flex flex-col flex-1 p-3 gap-2">
-        {/* カテゴリ */}
         <span className={`text-xs font-medium px-2 py-0.5 rounded border w-fit ${chip}`}>
           {item.category}
         </span>
-
-        {/* 商品名 */}
-        <h3 className="text-sm font-bold text-gray-800 line-clamp-3 leading-snug">
-          {item.title}
-        </h3>
-
-        {/* ブランド */}
-        {item.brand && (
-          <p className="text-xs text-gray-400">{item.brand}</p>
-        )}
-
+        <h3 className="text-sm font-bold text-gray-800 line-clamp-3 leading-snug">{item.title}</h3>
+        {item.brand && <p className="text-xs text-gray-400">{item.brand}</p>}
         <div className="flex-1" />
-
-        {/* 価格 */}
         <div className="mt-1">
           {item.price !== null && (
-            <p className="text-2xl font-bold text-[#FF8C00]">{fmt(item.price)}</p>
+            <p className="text-2xl font-bold text-orange-500">{fmt(item.price)}</p>
           )}
           <div className="flex items-center gap-2 mt-0.5">
             {item.originalPrice !== null && (
@@ -97,40 +75,26 @@ export const ProductCard: React.FC<Props> = ({ item, rank }) => {
             )}
           </div>
         </div>
-
-        {/* 星評価 */}
         {item.rating !== null && (
           <div className="flex items-center gap-1.5">
-            <div className="flex text-[#FF8C00] text-xs">
+            <div className="flex text-orange-400 text-xs">
               {[1,2,3,4,5].map(s => (
                 <span key={s}>{s <= Math.round(item.rating!) ? "★" : "☆"}</span>
               ))}
             </div>
             <span className="text-xs text-gray-600 font-medium">{item.rating}</span>
             {item.reviewCount !== null && (
-              
-                href={item.detailPageUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs text-[#FF8C00] hover:underline"
-              >
-                （{item.reviewCount.toLocaleString("ja-JP")}件）
+              <a href={item.detailPageUrl} target="_blank" rel="noopener noreferrer"
+                className="text-xs text-orange-500 hover:underline">
+                ({item.reviewCount.toLocaleString("ja-JP")}件)
               </a>
             )}
           </div>
         )}
-
-        {/* ボタン */}
-        
-          href={item.detailPageUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => {
-            window.trackAmazonClick?.(item.title, rank ? `ランキング${rank}位` : "");
-          }}
-          className="mt-2 block w-full text-center bg-[#FF8C00] hover:bg-[#e67e00] text-white font-bold py-2.5 rounded-lg text-sm active:scale-95 transition-all duration-150"
-        >
-          Amazonで確認する →
+        <a href={item.detailPageUrl} target="_blank" rel="noopener noreferrer"
+          onClick={() => { window.trackAmazonClick?.(item.title, rank ? `ランキング${rank}位` : ""); }}
+          className="mt-2 block w-full text-center bg-orange-500 hover:bg-orange-600 text-white font-bold py-2.5 rounded-lg text-sm transition-all duration-150">
+          Amazonで確認する
         </a>
       </div>
     </article>
