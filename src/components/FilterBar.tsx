@@ -10,7 +10,8 @@ interface Props {
 
 const CATEGORIES: Category[] = [
   "すべて","調理・製造道具","キッチン家電","製菓型・天板",
-  "デコレーション用品","製菓材料","消耗品・ラッピング","保存・仕上げ用品","その他"
+  "デコレーション用品","製菓材料","クッキングシート・消耗品",
+  "ラッピング・梱包","保存容器","ウェア・小物","その他製菓用品"
 ];
 const DISCOUNT_OPTIONS = [{label:"すべて",value:0},{label:"10%以上",value:10},{label:"20%以上",value:20},{label:"30%以上",value:30},{label:"50%以上",value:50}];
 const PRICE_OPTIONS = [{label:"上限なし",value:null},{label:"¥500以下",value:500},{label:"¥1,000以下",value:1000},{label:"¥3,000以下",value:3000},{label:"¥5,000以下",value:5000},{label:"¥10,000以下",value:10000}];
@@ -31,7 +32,7 @@ export const FilterBar: React.FC<Props> = ({ filter, onChange, totalCount, filte
         <div className="flex flex-col gap-1">
           {CATEGORIES.map(cat => (
             <button key={cat} onClick={() => set({ category: cat })}
-              className={`text-left text-xs px-3 py-1.5 rounded-lg transition-colors duration-150 ${filter.category === cat ? "bg-[#FFF3E0] text-[#BF360C] font-semibold" : "text-gray-700 hover:bg-[#FFF3E0]"}`}>
+              className={`text-left text-xs px-3 py-2 rounded-lg transition-colors duration-150 ${filter.category === cat ? "bg-[#FFF3E0] text-[#D84315] font-semibold" : "text-gray-700 hover:bg-[#FFF3E0]"}`}>
               {cat}
             </button>
           ))}
@@ -42,7 +43,7 @@ export const FilterBar: React.FC<Props> = ({ filter, onChange, totalCount, filte
 
       <section>
         <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">割引率</p>
-        <div className="flex flex-wrap gap-1.5">
+        <div className="flex flex-wrap gap-2">
           {DISCOUNT_OPTIONS.map(opt => (
             <button key={opt.value} onClick={() => set({ minDiscount: opt.value })}
               className={`text-xs px-2.5 py-1 rounded-full border transition-colors duration-150 ${filter.minDiscount === opt.value ? "bg-[#D84315] text-white border-[#D84315]" : "border-[#FFCCBC] text-gray-600 hover:bg-[#FFF3E0]"}`}>
