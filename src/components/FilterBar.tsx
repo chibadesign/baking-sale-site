@@ -11,9 +11,7 @@ interface Props {
 const CATEGORIES: Category[] = [
   "すべて","調理・製造道具","キッチン家電","製菓型・天板",
   "デコレーション用品","製菓材料","クッキングシート・消耗品",
-  "ラッピング・梱包","保存容器","ウェア・小物",
-  "調理・製菓道具","製菓用品","耐熱皿・焼き型",
-  "製菓・製パン材料","ベーキングツール・アクセサリ","その他製菓用品"
+  "ラッピング・梱包","保存容器","ウェア・小物","その他製菓用品"
 ];
 const DISCOUNT_OPTIONS = [{label:"すべて",value:0},{label:"10%以上",value:10},{label:"20%以上",value:20},{label:"30%以上",value:30},{label:"50%以上",value:50}];
 const PRICE_OPTIONS = [{label:"上限なし",value:null},{label:"¥500以下",value:500},{label:"¥1,000以下",value:1000},{label:"¥3,000以下",value:3000},{label:"¥5,000以下",value:5000},{label:"¥10,000以下",value:10000}];

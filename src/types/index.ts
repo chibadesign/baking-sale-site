@@ -32,12 +32,7 @@ export type Category =
   | "ラッピング・梱包"
   | "保存容器"
   | "ウェア・小物"
-  | "その他製菓用品"
-  | "調理・製菓道具"
-  | "製菓用品"
-  | "耐熱皿・焼き型"
-  | "製菓・製パン材料"
-  | "ベーキングツール・アクセサリ";
+  | "その他製菓用品";
 
 export interface FilterState {
   category: Category;
